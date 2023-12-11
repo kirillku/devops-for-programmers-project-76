@@ -1,5 +1,12 @@
-- hosts: web
+- hosts: all
   become: true
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  roles:
+    - geerlingguy.pip
+
   tasks:
     - name: Add Docker GPG apt Key
       apt_key:
