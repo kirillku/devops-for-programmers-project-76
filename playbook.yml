@@ -8,18 +8,35 @@
     - geerlingguy.pip
 
   tasks:
+    - name: d
+      debug:
+        msg: "{{ lookup('env') }}"
+      tags: debug
+
     - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
+      tags: install
 
     - name: Add Docker Repository
       apt_repository:
         repo: deb https://download.docker.com/linux/ubuntu focal stable
         state: present
+      tags: install
 
     - name: Update apt and install docker-ce
       apt:
         name: docker-ce
         state: latest
         update_cache: true
+      tags: install
+
+    - name: Install redmine container
+      community.docker.docker_container:
+        name: redmine
+        image: redmine
+        ports:
+          - 80:3000
+        env_file: ./.env
+      tags: deploy
