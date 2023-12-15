@@ -1,0 +1,5 @@
+db_host: rc1a-u1dcha05zz63ziqy.mdb.yandexcloud.net
+db_port: "6432"
+db_name: db
+db_username: kirillku
+db_password: password
