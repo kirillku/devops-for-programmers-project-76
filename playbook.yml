@@ -3,9 +3,17 @@
   vars:
     pip_install_packages:
       - name: docker
+    datadog_api_key: "{{ dd_api_key }}"
+    datadog_checks:
+      http:
+        init_config:
+        instances:
+          - name: Website
+            url: "{{ site_url }}"
 
   roles:
     - geerlingguy.pip
+    - { role: datadog.datadog, become: yes }
 
   tasks:
     - name: Add Docker GPG apt Key
