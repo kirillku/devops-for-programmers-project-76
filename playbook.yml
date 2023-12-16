@@ -8,7 +8,7 @@
     - geerlingguy.pip
 
   tasks:
-     - name: Add Docker GPG apt Key
+    - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/ubuntu/gpg
         state: present
@@ -32,7 +32,7 @@
         name: redmine
         image: redmine
         ports:
-          - 80:3000 
+          - 80:3000
         env:
           REDMINE_DB_POSTGRES: "{{ db_host }}"
           REDMINE_DB_PORT: "{{ db_port }}"
