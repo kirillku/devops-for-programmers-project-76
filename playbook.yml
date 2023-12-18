@@ -13,8 +13,8 @@
     datadog_site: datadoghq.eu
 
   roles:
-    - geerlingguy.pip
-    - { role: datadog.datadog, become: yes }
+    - { role: geerlingguy.pip, tags: install }
+    - { role: datadog.datadog, become: yes, tags: monitoring }
 
   tasks:
     - name: Add Docker GPG apt Key
