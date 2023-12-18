@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: webservers
   become: true
   vars:
     pip_install_packages:
