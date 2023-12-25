@@ -9,7 +9,7 @@
         init_config:
         instances:
           - name: Website
-            url: "{{ site_url }}"
+            url: "{{ app_url }}"
     datadog_site: datadoghq.eu
 
   roles:
@@ -45,7 +45,7 @@
         name: redmine
         image: redmine
         ports:
-          - 80:3000
+          - "{{ app_port }}:3000"
         env:
           REDMINE_DB_POSTGRES: "{{ db_host }}"
           REDMINE_DB_PORT: "{{ db_port }}"
