@@ -4,5 +4,6 @@ db_name: defaultdb
 db_username: doadmin
 db_password: "{{ vault_db_password }}"
 dd_api_key: "{{ vault_dd_api_key }}"
+dd_site: datadoghq.eu
 app_url: http://kubryakov.online/
 app_port: "80"

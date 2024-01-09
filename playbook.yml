@@ -10,7 +10,7 @@
         instances:
           - name: Website
             url: "{{ app_url }}"
-    datadog_site: datadoghq.eu
+    datadog_site: "{{ dd_site }}"
 
   roles:
     - role: geerlingguy.pip
