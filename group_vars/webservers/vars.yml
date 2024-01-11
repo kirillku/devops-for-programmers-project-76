@@ -3,7 +3,15 @@ db_port: "25060"
 db_name: defaultdb
 db_username: doadmin
 db_password: "{{ vault_db_password }}"
-dd_api_key: "{{ vault_dd_api_key }}"
-dd_site: datadoghq.eu
 app_url: http://kubryakov.online/
 app_port: "80"
+pip_install_packages:
+  - name: docker
+datadog_api_key: "{{ vault_dd_api_key }}"
+datadog_checks:
+  http:
+    init_config:
+    instances:
+      - name: Website
+        url: "{{ app_url }}"
+datadog_site: datadoghq.eu

@@ -1,16 +1,5 @@
 - hosts: webservers
   become: true
-  vars:
-    pip_install_packages:
-      - name: docker
-    datadog_api_key: "{{ dd_api_key }}"
-    datadog_checks:
-      http:
-        init_config:
-        instances:
-          - name: Website
-            url: "{{ app_url }}"
-    datadog_site: "{{ dd_site }}"
 
   roles:
     - role: geerlingguy.pip
